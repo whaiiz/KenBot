@@ -10,11 +10,7 @@ dotenv.config();
 const botToken = process.env.TOKEN;
 
 client.on('messageCreate', async (message) => {
-	const voiceChannel = message.member?.voice.channel;
-	
-	if (!voiceChannel) {
-		return message.reply('You need to be in a voice channel to use this command.');
-	}
+	console.log('teste');
 });
 
 client.on('ready', _ => {
