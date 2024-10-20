@@ -1,5 +1,7 @@
 import { Client, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
+import Session from './models/session.js';
+import connectDB from './database/connectDb.js';
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -9,8 +11,14 @@ dotenv.config();
 
 const botToken = process.env.TOKEN;
 
+connectDB();
+
 client.on('messageCreate', async (message) => {
-	console.log('teste');
+	if (message.content.startsWith('teste')) {
+		let newSession = new Session({ name: "teste"});
+    let result = await newSession.save();
+		console.log('result', result);
+	}
 });
 
 client.on('ready', _ => {
