@@ -26,3 +26,8 @@ client.on('ready', _ => {
 });
 
 client.login(botToken);
+
+http.createServer(function(req, res){
+  res.write('Alive');
+  res.end();
+}).listen(3000);
