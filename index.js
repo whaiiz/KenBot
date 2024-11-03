@@ -1,5 +1,6 @@
 import { Client, GatewayIntentBits } from 'discord.js';
 import dotenv from 'dotenv';
+import http from 'http';
 import Session from './models/session.js';
 import connectDB from './database/connectDb.js';
 
